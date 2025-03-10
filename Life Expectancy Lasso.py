@@ -34,6 +34,3 @@ for i in alphas:
     lasso.fit(x_train, y_train)
     lasso_r2 = lasso.score(x_test, y_test)
     print(f"Lasso (alpha = {i}) R Score: {lasso_r2:.3f}")
-
-
-#change of tolerance, plot loss function with iteration count
