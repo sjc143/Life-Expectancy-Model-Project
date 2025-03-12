@@ -12,6 +12,6 @@ Although no preprocessing is required for the Kaggle dataset to be run with the 
 The required to run the code are: NumPy, Pandas, Scikit-learn, and Matplotlib. 
 
 ## Running Instructions
-1. Download [Life_Expectancy_Data.csv](Life_Expectancy_Data.csv), [Life Expectancy Model Comparisons.py](Life\ Expectancy\ Model\ Comparisons.py), and [Life Expectancy PCA.py](Life Expectancy PCA.py)
+1. Download [Life_Expectancy_Data.csv](Life_Expectancy_Data.csv), Life Expectancy Model Comparisons.py, and Life Expectancy PCA.py
 2. Group them in the folder together
 3. Run Life Expectancy Model Comparisons.py and Life Expectancy PCA.py and view the results
