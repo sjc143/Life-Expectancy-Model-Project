@@ -6,7 +6,7 @@ With the anticipated population plateau in developed countries, life expectancy 
 ## Data Preparation
 Data for this project was used from a [Kaggle dataset](https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who/data) of combined life expectancy indicators provided by the World Health Organization (WHO). This dataset is linked above and also included as the Life_Expectancy_Data.csv in the project.
 
-Although no preprocessing is required for the Kaggle dataset to be run with the code provided, usage of the code for any other datasets would require the removal of any incomplete data entries that include empty strings or filler zeros (ex. zero population would result in removal of an entire entry row). 
+Although no preprocessing is required for the Kaggle dataset to be run with the code provided, usage of the code for any other datasets would require the removal of any incomplete data entries that include empty strings or filler zeros (e.g., a country exhibiting a value of "0" in the population category would result in the removal of that entire country's row on the datasheet). 
 
 ## Required Packages 
 The required to run the code are: NumPy, Pandas, Scikit-learn, and Matplotlib. 
