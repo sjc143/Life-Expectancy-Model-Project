@@ -72,9 +72,12 @@ data = data[~(data[numeric_columns] == 0).any(axis=1)]
 y = np.array(data['Life expectancy '])
 x = np.array(data.loc[:, 'Adult Mortality':])
 
+
+
 #Application of PCA onto Life Expectancy to gauge varience captured by components
 Testing_PCA = PCA()
 Testing_PCA.fit(x)
+
 
 #>95% of variance is captured by first 12 components --> will use k=12 for transformation
 #Transform old standardized dataset via selected components (k=12)
@@ -98,6 +101,8 @@ ridge = linear_model.Ridge(alpha = 1.0)
 ridge.fit(x_train, y_train)
 print(f"Ridge R - {ridge.score(x_test, y_test):.3f}")
 print()
+
+
 
 
 #Bar graph to visualize contribution of each component from PCA
