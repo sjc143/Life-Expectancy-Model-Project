@@ -76,21 +76,28 @@ class ModelComparison:
 #Application of Lasso_vs_Ridge for Life Expectancy
 #Loading in kaggle dataset
 data = pd.read_csv("Life_Expectancy_Data.csv", low_memory = False)
-data.replace('', np.nan, inplace=True)
-pd.set_option('display.max_columns', None)
-pd.set_option('display.max_rows', None)
-data.dropna(inplace=True)  #removing incomplete data entries
+data.columns = data.columns.str.strip()
+data.replace('', np.nan, inplace=True) #removing rows with empty data entries
+data.dropna(inplace=True)
+numeric_columns = data.select_dtypes(include=[np.number]).columns #removing rows with filler zeros (ex. 0 population)
+data = data[~(data[numeric_columns] == 0).any(axis=1)]
 y = np.array(data['Life expectancy '])
 x = np.array(data.loc[:, 'Adult Mortality':])
+
+
 
 #Comparison of Lasso vs Ridge models for alpha = 1.0
 life_exp = ModelComparison()
 life_exp.train_compare(x, y)
 
+
+
 #Comparison of Lasso vs Ridge models for alpha range
 alphas = [0.1, 0.25, 0.5, 0.75, 0.9, 1.0]
 (testing_linear_rscore, training_lasso_rscore, testing_lasso_rscore,
  training_ridge_rscore, testing_ridge_rscore) = life_exp.alpha_range_compare(x, y, alphas)
+
+
 
 #Comparison plots ax1 (training vs testing lasso), ax2 (training vs testing ridge),
 # ax3 (testing linear vs lasso vs ridge)
