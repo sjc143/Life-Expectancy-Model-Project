@@ -64,10 +64,11 @@ class PCA:
 
 #Loading in kaggle dataset
 data = pd.read_csv("Life_Expectancy_Data.csv", low_memory = False)
-data.replace('', np.nan, inplace=True)
-pd.set_option('display.max_columns', None)
-pd.set_option('display.max_rows', None)
-data.dropna(inplace=True)  #removing incomplete data entries
+data.columns = data.columns.str.strip()
+data.replace('', np.nan, inplace=True) #removing rows with empty data entries
+data.dropna(inplace=True)
+numeric_columns = data.select_dtypes(include=[np.number]).columns #removing rows with filler zeros (ex. 0 population)
+data = data[~(data[numeric_columns] == 0).any(axis=1)]
 y = np.array(data['Life expectancy '])
 x = np.array(data.loc[:, 'Adult Mortality':])
 
@@ -75,11 +76,11 @@ x = np.array(data.loc[:, 'Adult Mortality':])
 Testing_PCA = PCA()
 Testing_PCA.fit(x)
 
-#>95% of variance is captured by first 13 components --> will use k=13 for transformation
-#Transform old standardized dataset via selected components (k=13)
-PCA = PCA(n_components=13)
+#>95% of variance is captured by first 12 components --> will use k=12 for transformation
+#Transform old standardized dataset via selected components (k=12)
+PCA = PCA(n_components=12)
 eigenvects = PCA.fit(x, show_ratio=False)
-x_transformed = PCA.transform(x, k=13, eigenvects_sorted=eigenvects)
+x_transformed = PCA.transform(x, k=12, eigenvects_sorted=eigenvects)
 
 #Comparing linear, lasso, and ridge performance with transformed dataset
 x_train, x_test, y_train, y_test = train_test_split(x_transformed, y, random_state = 0)
