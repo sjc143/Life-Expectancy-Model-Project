@@ -22,6 +22,7 @@ class PCA:
         return x_standardized
 
     # Finds eigenvectors of system and sorts then according to greatest to least with respect to eigenvalues
+    # show_ratio = True will result in the creation of a cumulative explained varience ratio graph to aid in the selection of how many components to use 
     def fit(self, x, show_ratio=True):
         x_standardized = self.standardize(x)
 
@@ -43,8 +44,8 @@ class PCA:
         if show_ratio:
             print("cumulative explained varience ratio: \n", cumulative_explained_variance)
             print()
-            plt.plot(cumulative_explained_variance, '-o')
-            plt.xticks(np.arange(0, len(cumulative_explained_variance), 1))
+            plt.plot(np.arange(1, len(cumulative_explained_variance)+1, 1), cumulative_explained_variance, '-o')
+            plt.xticks(np.arange(1, len(cumulative_explained_variance)+1, 1))
             plt.xlabel('Component Number')
             plt.ylabel('Cumulative Explained Variance Ratio')
             plt.show()
