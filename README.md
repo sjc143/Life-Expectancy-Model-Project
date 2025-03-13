@@ -9,7 +9,7 @@ Data for this project was used from a [Kaggle dataset](https://www.kaggle.com/da
 Although no preprocessing is required for the Kaggle dataset to be run with the code provided, usage of the code for any other datasets would require the removal of any incomplete data entries that include empty strings or filler zeros (e.g., a country exhibiting a value of "0" in the population category would result in the removal of that entire country's row on the datasheet). 
 
 ## Required Packages 
-The required to run the code are: NumPy, Pandas, Scikit-learn, and Matplotlib. 
+The required to run the code are: NumPy, Pandas, Scikit-learn, Streamlit, and Matplotlib. 
 
 ## Running Instructions
 1. Download [Life_Expectancy_Data.csv](Life_Expectancy_Data.csv), Life Expectancy Model Comparisons.py, and Life Expectancy PCA.py
