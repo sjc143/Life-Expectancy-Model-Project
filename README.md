@@ -11,7 +11,12 @@ Although no preprocessing is required for the Kaggle dataset to be run with the 
 ## Required Packages 
 The required to run the code are: NumPy, Pandas, Scikit-learn, Streamlit, and Matplotlib. 
 
-## Running Instructions
+## Running Instructions for Model Comparisons 
 1. Download [Life_Expectancy_Data.csv](Life_Expectancy_Data.csv), Life Expectancy Model Comparisons.py, and Life Expectancy PCA.py
 2. Group them in a project folder together
 3. Run Life Expectancy Model Comparisons.py and Life Expectancy PCA.py and view the results
+
+## Running Instructions for Interactive Life Expectancy Interface
+1. Download Life_Expectancy_Interface.py and move the file into the folder containing Life_Expectancy_Data.csv
+2. In the terminal, type in: streamlit run Life_Expectancy_Interface.py
+3. Allow the browser pop-up to load
